@@ -30,12 +30,10 @@ public class TransactionRepository {
 		populateData();
 	}
 	public Transaction findById(Long transactionId) {
-		System.out.println("Before loop trans ID : " + transactionId);
 		for(Transaction transaction : transactions) {
 			if(transaction.getId().equals(transactionId)) {
 				return transaction;
 			}
-			System.out.println(transaction.getId());
 		}
 		return null;
 	}

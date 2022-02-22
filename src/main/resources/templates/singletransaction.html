@@ -3,16 +3,14 @@
 <title>Single Transaction</title>
 </head>
 <body>
-
-	<h1 th:text="|Transaction ID: ${id}|"></h1>
-	  <div th:text="|Date: ${date}|"></div>
+	<h1 th:inline="text">Transaction ID: [[${id}]] 
+		<span th:utext="${type == 'D'} ? '(Debit)' : '(Credit)'"></span>
+	</h1>
+	<div th:text="|Date: ${date}|"></div>
 	<div th:text="|Amount: ${amount}|"></div>
 	<div th:text="|Description: ${description}|"></div> 
 	<div>
 		<a href="/transactions">Back</a>
 	</div>
-
 </body>
-
-
 </html>

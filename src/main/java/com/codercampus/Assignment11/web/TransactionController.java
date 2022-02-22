@@ -33,14 +33,13 @@ public class TransactionController {
 	
 	@GetMapping("/transactions/{transactionId}")
 	public String getSingularTransactionData (ModelMap model, @PathVariable Long transactionId) {
-		System.out.println("On the cont. the ID is: " + transactionId);
 		Transaction singleTransaction = transactionService.findById(transactionId);
 		
-		 System.out.println(singleTransaction);
 		 model.put("id", singleTransaction.getId());
 		 model.put("date", singleTransaction.getDate());
 		 model.put("amount", singleTransaction.getAmount());
 		 model.put("description", singleTransaction.getDescription());
+		 model.put("type", singleTransaction.getType());
 
 		return "singletransaction";
 		}
