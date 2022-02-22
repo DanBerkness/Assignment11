@@ -3,7 +3,11 @@ package com.codercampus.Assignment11.repository;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -20,7 +24,13 @@ public class TransactionRepository {
 	}
 	
 	public List<Transaction> findAll () {
-//		Probably sort here?
+		Collections.sort(transactions, new Comparator<Transaction>() {
+
+			@Override
+			public int compare(Transaction o1, Transaction o2) {
+				return o1.compareTo(o2);
+			}
+		});
 		return transactions;
 	}
 
@@ -36,6 +46,7 @@ public class TransactionRepository {
 	}
 
 	public Transaction findById(Integer transactionId) {
+		// Find the second view of a single transaction.
 		return transactions.get(transactionId);
 		
 	}

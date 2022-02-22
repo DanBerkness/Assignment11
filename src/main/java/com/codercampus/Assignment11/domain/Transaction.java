@@ -6,7 +6,7 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Transaction implements Serializable {
+public class Transaction implements Serializable, Comparable<Transaction> {
 	private static final long serialVersionUID = 5489045104890844953L;
 	
 	private Long id;
@@ -71,6 +71,11 @@ public class Transaction implements Serializable {
 	public String toString() {
 		return "Transaction [id=" + id + ", retailer=" + retailer + ", description=" + description + ", date=" + date
 				+ ", amount=" + amount + ", type=" + type + "]";
+	}
+	@Override
+	public int compareTo(Transaction that) {
+		
+		return this.getDate().compareTo(that.getDate());
 	}
 	
 }

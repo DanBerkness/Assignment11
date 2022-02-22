@@ -19,7 +19,6 @@
 					<td th:inline="text"><a th:href="@{/transactions/{transactionId}(transactionId=${transactionFound.id})}">[[${transactionFound.id}]]</a></td>
 					<td th:inline="text">[[${transactionFound.date}]]</td>
 					<td th:inline="text">[[${transactionFound.retailer}]]</td>
-					
 					<td th:utext="${transactionFound.type == 'C'} ? ${transactionFound.amount} : ${null}"></td>
 					<td th:utext="${transactionFound.type == 'D'} ? ${transactionFound.amount} : ${null}"></td>
 				  	
