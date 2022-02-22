@@ -8,7 +8,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
@@ -18,14 +24,24 @@ import com.codercampus.Assignment11.domain.Transaction;
 public class TransactionRepository {
 	private List<Transaction> transactions = new ArrayList<>(100);
 	
+	
 	public TransactionRepository () {
 		super();
 		populateData();
 	}
+	public Transaction findById(Long transactionId) {
+		System.out.println("Before loop trans ID : " + transactionId);
+		for(Transaction transaction : transactions) {
+			if(transaction.getId().equals(transactionId)) {
+				return transaction;
+			}
+			System.out.println(transaction.getId());
+		}
+		return null;
+	}
 	
 	public List<Transaction> findAll () {
 		Collections.sort(transactions, new Comparator<Transaction>() {
-
 			@Override
 			public int compare(Transaction o1, Transaction o2) {
 				return o1.compareTo(o2);
@@ -45,9 +61,4 @@ public class TransactionRepository {
 		
 	}
 
-	public Transaction findById(Integer transactionId) {
-		// Find the second view of a single transaction.
-		return transactions.get(transactionId);
-		
-	}
 }

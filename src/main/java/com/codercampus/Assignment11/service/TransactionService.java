@@ -11,16 +11,13 @@ import com.codercampus.Assignment11.repository.TransactionRepository;
 @Service
 public class TransactionService {
 	Transaction transaction = new Transaction();
-
 	TransactionRepository transactionRepo = new TransactionRepository();
-	
-	private Integer transactionId = 1;
 	
 	public List<Transaction> populateData() {
 		return transactionRepo.findAll();
 	}
 
-	public Transaction findById(Integer transactionId) {
+	public Transaction findById(Long transactionId) {
 		transaction = transactionRepo.findById(transactionId);
 		return transaction;
 	}

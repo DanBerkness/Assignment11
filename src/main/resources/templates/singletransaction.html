@@ -1,16 +1,18 @@
 <html xmlns:th="http://thymeleaf.org">
-	<head>
-		<title>Single Transaction</title>
-	</head>
-	<body>
-		<form >
-			<h1 th:field="${transaction}" th:text="Transaction Id: "></h1>
-			<div>Date: add date</div>
-			<div>Amount: add amount</div>
-			<div>Description: add desc</div>
-			<div><a href="/transactions">Back</a></div>
-		</form>
-	</body>
+<head>
+<title>Single Transaction</title>
+</head>
+<body>
+
+	<h1 th:text="|Transaction ID: ${id}|"></h1>
+	  <div th:text="|Date: ${date}|"></div>
+	<div th:text="|Amount: ${amount}|"></div>
+	<div th:text="|Description: ${description}|"></div> 
+	<div>
+		<a href="/transactions">Back</a>
+	</div>
+
+</body>
 
 
 </html>
