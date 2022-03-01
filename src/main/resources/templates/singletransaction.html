@@ -7,7 +7,7 @@
 		<span th:utext="${type == 'D'} ? '(Debit)' : '(Credit)'"></span>
 	</h1>
 	<div th:text="|Date: ${date}|"></div>
-	<div th:text="|Amount: ${amount}|"></div>
+	<div th:utext="${type == 'D'} ? |Amount: ${amount}| : |Amount: -${amount}|"></div>
 	<div th:text="|Description: ${description}|"></div> 
 	<div>
 		<a href="/transactions">Back</a>
